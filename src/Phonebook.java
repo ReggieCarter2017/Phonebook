@@ -2,13 +2,9 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-public class Phonebook extends Contact implements Manager {
+public class Phonebook extends Contact implements ContaactAdd, ContactDelete, ContactSearch, SaveTheFile {
     List<Contact> contacts;
 
     public Phonebook()
@@ -31,6 +27,7 @@ public class Phonebook extends Contact implements Manager {
             System.out.printf("ID: %s\nName: %s\nAdress: %s\nPhone number: %s\nE-mail: %s\n\n", s.getID(), s.getName(), s.getAdress(), s.getPhoneNumber(), s.getEmail());
     }
 
+    @Override
     public Contact searchContact(String key) {
 
         for (Contact c : contacts) {
@@ -41,7 +38,7 @@ public class Phonebook extends Contact implements Manager {
         }
         return null;
     }
-
+    @Override
     public void saveTheFile(String name, List<Contact> contacts)
     {
         File file = new File(name);
