@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class View {
+public class View implements ContactShowOne {
     Scanner in = new Scanner(System.in);
 
     public String getValue()
@@ -11,7 +11,7 @@ public class View {
     {
         return in.nextLine();
     }
-
+    @Override
     public void showOne(Contact c) {
         System.out.printf("ID: %s\nName: %s\nAdress: %s\nPhone number: %s\nE-mail: %s\n\n", c.getID(),
                 c.getName(), c.getAdress(), c.getPhoneNumber(), c.getEmail());
